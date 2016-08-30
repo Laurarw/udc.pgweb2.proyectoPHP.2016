@@ -9,7 +9,7 @@
         <link rel=stylesheet href="bower_components/bootstrap/dist/css/bootstrap.css"/>
         <link rel=stylesheet href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css"/>
         <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-        
+        <script src="public/script.js"></script>
         
         
         

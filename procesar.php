@@ -13,7 +13,7 @@ $errores=[];
 
 if($_GET['action']=='create'){
     //print_r($_GET);
-    $date = DateTime::createFromFormat('m/d/Y', $_POST['fecha_nac']);
+    $date = DateTime::createFromFormat('d/m/Y', $_POST['fecha_nac']);
 
 //var_dump($date);
         //new DateTime($_POST['fecha_nac']);
@@ -28,18 +28,20 @@ $info['nacionalidad']=$_POST['lugar_nac'];
 $info['activo']=$_POST['activo'];
 
 guardarCliente($info);
+header("Location: list.php");
+
 
     
 }
 
 
 if($_GET['action']=='edit'){
-    //print_r($_GET);
-    $date = DateTime::createFromFormat('m/d/Y', $_POST['fecha_nac']);
+    // print_r($_GET['action']);
+   $id=$_GET['id'];
+     $timestamp = strtotime($_POST['fecha_nac']);
+$date = date('Y-m-d',$timestamp );
 
-//var_dump($date);
-        //new DateTime($_POST['fecha_nac']);
-$fecha=$date->format('Y-m-d');
+$fecha=$date;
 //print_r($fecha);
 
 
@@ -49,7 +51,8 @@ $info['fecha_nacimiento']=$fecha;
 $info['nacionalidad']=$_POST['lugar_nac'];
 $info['activo']=$_POST['activo'];
 
-guardarCliente($info);
+updateCliente($info,$id);
+header("Location: list.php");
 
     
 }

@@ -31,6 +31,27 @@ function guardarCliente($info){
     
 }
 
+function updateCliente($info,$id){
+    require __DIR__.'/conf/conf_bd.php';
+         $consulta = $pdo->prepare('UPDATE `clientes`  '
+                 . 'SET '
+                 . 'nombre=:nombre, '
+                 . 'apellido=:apellido,'
+                 . 'fecha_nacimiento=:fecha_nacimiento,'
+                 . 'nacionalidad_id=:nacionalidad_id,'
+                 . 'activo=:activo '
+                 . 'WHERE id = :id;');
+         $consulta->bindParam(':nombre', $info['nombre']);
+         $consulta->bindParam(':apellido', $info['apellido']);
+         $consulta->bindParam(':fecha_nacimiento', $info['fecha_nacimiento']);
+         $consulta->bindParam(':nacionalidad_id', $info['nacionalidad']);
+         $consulta->bindParam(':activo', $info['activo']);
+         $consulta->bindParam(':id', $id);
+         $consulta->execute();
+         
+    
+}
+
 function buscarCliente($id){
     require __DIR__.'/conf/conf_bd.php';
     $consulta = $pdo->prepare("SELECT c.nacionalidad_id,c.id,c.nombre, c.apellido, c.fecha_nacimiento, n.nombre as nacionalidad,c.activo,SPACE(30) AS edad "

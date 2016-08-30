@@ -6,6 +6,9 @@ $control=true;
 $id=$_GET['id'];
 
 $cliente= buscarCliente($id);
+$originalDate = $cliente->fecha_nacimiento;
+$cliente->fecha_nacimiento = date("d-m-Y", strtotime($originalDate));
+
 $nacionalidades=  listadoNacionalidades();
 //print_r($cliente);
 

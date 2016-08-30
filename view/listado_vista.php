@@ -1,4 +1,5 @@
 <?php require_once 'layout/header.php'; ?> 
+<?php require_once 'confirm_delate.php'; ?> 
  <?php if(isset($control)==false):  ?>
          <h1> No tiene permiso de ingreso en esta pagina.</h1>
          
@@ -31,11 +32,12 @@
               <td><?php echo $persona->nacionalidad ?></td>
               <td><?php echo $persona->activo  ?></td>
               <td><a href="edit.php?id=<?php echo $persona->id; ?>" class="btn btn-xs btn-primary">Modificar</a>
-                  <a href="#" class="btn btn-xs btn-danger">Eliminar</a></td>
+                  <a href="procesar.php?action=delete&id=<?php echo $persona->id; ?>" class="btn btn-xs btn-danger">Eliminar</a></td>
             </tr>
         <?php endforeach;  ?>
         
       </tbody>
     </table>
 </div>
+
 <?php require_once 'layout/footer.php'; ?> 
