@@ -56,7 +56,13 @@ header("Location: list.php");
 
     
 }
-
+if($_GET['action']=='delate'){
+    //var_dump('delitee',$_GET['id']);
+    $id=$_GET['id'];
+    delateCliente($id);
+    header("Location: list.php");
+    
+}
 
 
 

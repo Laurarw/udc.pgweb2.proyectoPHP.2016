@@ -19,8 +19,11 @@ $(document).ready(function() {
                },
           buttons: {
             Continuar: function() {
-          
-              $( this ).dialog( "close" );
+            var id=$('#seleccionado').attr('name');
+            document.location = "procesar.php?action=delate&id="+id;
+             $( this ).dialog( "close" );
+            return true;
+             
             },
             Cancelar: function() {
               // Cerramos el diálogo
@@ -29,8 +32,10 @@ $(document).ready(function() {
             }
           }
         });
+       //
         
         $('.btn-danger').on('click', function(e){
+             $(this).attr("id","seleccionado");
             $('#dialogoFormulario').dialog('open');
             //alert('delate');
                             return false;

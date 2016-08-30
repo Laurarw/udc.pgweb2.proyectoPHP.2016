@@ -52,6 +52,7 @@ function updateCliente($info,$id){
     
 }
 
+
 function buscarCliente($id){
     require __DIR__.'/conf/conf_bd.php';
     $consulta = $pdo->prepare("SELECT c.nacionalidad_id,c.id,c.nombre, c.apellido, c.fecha_nacimiento, n.nombre as nacionalidad,c.activo,SPACE(30) AS edad "
@@ -64,6 +65,14 @@ function buscarCliente($id){
     
     return $results=$consulta->fetch();
 }
+function delateCliente($id){
+    require __DIR__.'/conf/conf_bd.php';
+  
+         $consulta = $pdo->prepare("DELETE FROM clientes WHERE id = :id;");         
+         $consulta->bindParam(':id', $id);
+         $consulta->execute();
+}
+
 function listadoNacionalidades(){
     require __DIR__.'/conf/conf_bd.php';
    
