@@ -13,7 +13,7 @@
                  
              <?php require 'view/form_vista.php'; ?>
 
-          <input type="submit" class="btn btn-primary">
+                 <input type="submit" class="btn btn-primary" value="Actualizar">
             
         </form> 
         
