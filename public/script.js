@@ -1,5 +1,11 @@
 $(document).ready(function() {
     
+    
+
+$('#show').find('input, textarea, button, select').attr('disabled','disabled');
+
+
+    
     $('#dialogoFormulario').dialog({
           // Indica si la ventana se abre de forma automática
           autoOpen: false,
@@ -20,8 +26,26 @@ $(document).ready(function() {
           buttons: {
             Continuar: function() {
             var id=$('#seleccionado').attr('name');
-            document.location = "procesar.php?action=delate&id="+id;
-             $( this ).dialog( "close" );
+            //document.location = "procesar.php?action=delate&id="+id;
+            $.ajax({
+                              type:"post",
+                              url:"delete.php",
+                              context: this,
+                              data:"id="+id,
+                              //dataType: "html",
+                              
+                              success:function(data){
+                                 
+                                  $( this ).dialog( "close" );
+                                  //$(".container").html(data);
+                                  location.reload();
+                                 
+                                  
+                              }
+                              
+                   
+                            });
+            
             return true;
              
             },

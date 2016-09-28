@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__.'/session.php';
 require_once __DIR__.'/funciones.php';
 
 $control=true;
@@ -15,4 +15,4 @@ foreach ($clientes as $personas){
 
 
 
-require_once __DIR__.'/view/listado_vista.php';
+require_once __DIR__.'/view/index.php';
