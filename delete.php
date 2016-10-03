@@ -8,9 +8,9 @@ if(in_array($permiso, $permisosUsuario)){
     $id=$_POST['id'];
     delateCliente($id,false);
     
-    
-    header("Location: list.php");
+    var_dump($id);
+    //header("Location: list.php");
 }else{
     $_SESSION['sin_permiso']="No tiene permiso para esta operación";
-    header("Location: list.php");
+    //header("Location: list.php");
 }

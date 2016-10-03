@@ -40,7 +40,7 @@
                   <a href="procesar.php?action=show&id=<?php echo $persona->id; ?>" class="btn btn-xs btn-info">Ver</a>
                   <input name="<?php echo $persona->id; ?>" type="button"  value="Baja" class="btn btn-danger"/>
 
-                  <input name="cliente" type="hidden" value="<?php echo $persona->id ?>" id="cliente_id"/></td>
+                  <input name="cliente_id" type="hidden" value="<?php echo $persona->id ?>" id="cliente_id"/></td>
             </tr>
         <?php endforeach;  ?>
         

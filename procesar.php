@@ -2,13 +2,14 @@
 require_once __DIR__.'/session.php';
 require_once __DIR__.'/funciones.php';
 
-$errores=[];
+
 /*
  * ACCION CREATE
  */
 if($_GET['action']=='create'){
     ///PROBANDO VALIDACIONES
-   
+    
+$errores=[];   
     if($_POST['fecha_nac']==''){
         $info['fecha_nacimiento']='';
         
@@ -19,14 +20,7 @@ if($_GET['action']=='create'){
          $info['fecha_nacimiento']=$fecha;
          
     }
-     //var_dump($info['fecha_nacimiento']);
-    //print_r($_GET);
    
-
-//var_dump($date);
-        //new DateTime($_POST['fecha_nac']);
-
-//print_r($fecha);
 
 
 $info['nombre']=$_POST['nombre'];
@@ -50,48 +44,47 @@ if(!empty($errores)){
     guardarCliente($info);
     header("Location: list.php");
 }
-
-//return var_dump(fechaValida($fecha));
-
-
-
-
-
-
-    
+   
 }
 /*
  * ACCION EDITAR
  */
 
 if($_GET['action']=='edit'){
-    // print_r($_GET['action']);
+$errores=[];
+     //print_r($_POST);
    $id=$_GET['id'];
      $timestamp = strtotime($_POST['fecha_nac']);
 $date = date('Y-m-d',$timestamp );
 
 $fecha=$date;
-//print_r($fecha);
+
 
 
 $info['nombre']=$_POST['nombre'];
 $info['apellido']=$_POST['apellido'];
 $info['fecha_nacimiento']=$fecha;
 $info['nacionalidad']=$_POST['lugar_nac'];
-$info['activo']=$_POST['activo'];
-
+if(isset($_POST['activo'])==false){
+    $info['activo']=0;
+}else{
+    $info['activo']=$_POST['activo'];
+}
+//print_r($info['activo']);
 updateCliente($info,$id);
 header("Location: list.php");
-
+die();
     
 }
 
 if($_GET['action']=='show'){
     // print_r($_GET['action']);
    $id=$_GET['id'];
+   $readonly=true;
    $cliente=  buscarCliente($id);
-    
-require_once 'view/crear_vista.php';
+   $nacionalidades= listadoNacionalidades();
+    //print_r($cliente->activo);
+require_once 'view/show_vista.php';
 die();
 
     

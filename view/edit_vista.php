@@ -10,6 +10,7 @@
                  
                  
              <?php require 'view/form_vista.php'; ?>
+                    <input name="id" type="hidden" value="<?php echo $cliente->id ?>" id="cliente_id"/>
 
                  <input type="submit" class="btn btn-primary" value="Actualizar">
                  

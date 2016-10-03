@@ -12,7 +12,7 @@ if(in_array($permiso, $permisosUsuario)){
     $cliente->fecha_nacimiento = date("d-m-Y", strtotime($originalDate));
 
     $nacionalidades=  listadoNacionalidades();
-    //print_r($cliente);
+    
 
     //echo ((isset($cliente->nacionalidad) && $cliente->nacionalidad =='Argentino/a') ? "selected":'');
 

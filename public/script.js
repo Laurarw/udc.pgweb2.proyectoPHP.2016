@@ -62,7 +62,7 @@ $('#show').find('input, textarea, button, select').attr('disabled','disabled');
              $(this).attr("id","seleccionado");
             $('#dialogoFormulario').dialog('open');
             //alert('delate');
-                            return false;
+            return false;
             
         });
 });
